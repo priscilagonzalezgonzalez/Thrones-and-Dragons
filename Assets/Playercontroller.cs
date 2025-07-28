@@ -28,8 +28,8 @@ public class Playercontroller : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>(); //Busca el componente Rigidbody2D del personaje
         anim = GetComponent<Animator>(); //Busca el componente Animator del personaje
         spr = GetComponent<SpriteRenderer>();
-        ScoreTxt.text = PersistentManagerScript.Instance.Score.ToString(); //Obteniendo el valor Score actual
-        life = PersistentManagerScript.Instance.Life;
+        //ScoreTxt.text = PersistentManagerScript.Instance.Score.ToString(); //Obteniendo el valor Score actual
+        //life = PersistentManagerScript.Instance.Life;
         
         // LifesTxt.text = PersistentManagerScript.Instance.Lifes.ToString(); //Obteniendo el valor Lifes actual
     }
@@ -62,7 +62,7 @@ public class Playercontroller : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.Space)){
             attack = false;
         }
-
+        /*
         if(life < 1){
             Destroy(hearts[0].gameObject);
         }
@@ -71,7 +71,7 @@ public class Playercontroller : MonoBehaviour
         }
         else if(life < 3){
             Destroy(hearts[2].gameObject);
-        }
+        }*/
     }
 
 
@@ -134,7 +134,7 @@ public class Playercontroller : MonoBehaviour
         PersistentManagerScript.Instance.Score+= points;
         ScoreTxt.text = PersistentManagerScript.Instance.Score.ToString();
     }
-
+    /*
     public void RestLife(){
         if(life > 1){
             PersistentManagerScript.Instance.Life--;
@@ -144,7 +144,7 @@ public class Playercontroller : MonoBehaviour
             Invoke("GameOverLoad", 0.2f);
         }
         
-    }
+    }*/
 
     void GameOverLoad(){
         SceneManager.LoadScene("GameOver");

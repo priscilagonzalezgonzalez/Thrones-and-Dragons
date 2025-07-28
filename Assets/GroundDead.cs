@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GroundDead : MonoBehaviour
+/*public class GroundDead : MonoBehaviour
 {
     public Playercontroller player;
     // Start is called before the first frame update
@@ -12,4 +12,4 @@ public class GroundDead : MonoBehaviour
             player.RestLife();
         }
     }
-}
+}*/
