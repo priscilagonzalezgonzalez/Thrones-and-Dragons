@@ -58,3 +58,6 @@ Thrones and Dragons is a fantasy 2D platformer game created in Unity
 - Data persistence between scenes
 
 ## 📸 Screenshots
+
+### Castle Scene
+![Castle Screenshot](Screenshots/CastleScene.png)
