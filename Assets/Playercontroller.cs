@@ -10,7 +10,7 @@ public class Playercontroller : MonoBehaviour
     public float maxSpeed = 50f;
     public bool grounded;
     public bool attack;
-    public float jumpPower = 0.01f;
+    public float jumpPower = 1.5f;
     public Text ScoreTxt;
     public GameObject[] hearts;
     
