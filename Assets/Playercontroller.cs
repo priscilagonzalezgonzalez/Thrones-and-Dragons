@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class Playercontroller : MonoBehaviour
 {
-    public float speed = 30f;
-    public float maxSpeed = 60f;
+    public float speed = 25f;
+    public float maxSpeed = 50f;
     public bool grounded;
     public bool attack;
-    public float jumpPower = 1.5f;
+    public float jumpPower = 0.01f;
     public Text ScoreTxt;
     public GameObject[] hearts;
     
@@ -21,6 +21,9 @@ public class Playercontroller : MonoBehaviour
     private bool doubleJump;
     private bool movement = true;
     private int life;
+    private Vector3 originalScale;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +31,11 @@ public class Playercontroller : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>(); //Busca el componente Rigidbody2D del personaje
         anim = GetComponent<Animator>(); //Busca el componente Animator del personaje
         spr = GetComponent<SpriteRenderer>();
+        originalScale = transform.localScale;
+
         //ScoreTxt.text = PersistentManagerScript.Instance.Score.ToString(); //Obteniendo el valor Score actual
         //life = PersistentManagerScript.Instance.Life;
-        
+
         // LifesTxt.text = PersistentManagerScript.Instance.Lifes.ToString(); //Obteniendo el valor Lifes actual
     }
 
@@ -87,10 +92,10 @@ public class Playercontroller : MonoBehaviour
         if(!movement) h = 0;
 
         if(h > 0.1f){
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
         }
         if(h < -0.1f){
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+            transform.localScale = new Vector3(-Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
         }
     
         rb2d.AddForce(Vector2.right * speed * h); //Movimiento del personaje Vector2 = +1, h = dirección (+1, -1)
